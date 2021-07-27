@@ -1,0 +1,11 @@
+set(DEV_GUIDE_SAMPLE_INDEX "" CACHE STRING "Index of the plugin development guide sample to build")
+
+if(DEV_GUIDE_SAMPLE_INDEX)
+  file(GLOB dirs RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ??)
+  foreach(dir ${dirs})
+    if(dir EQUAL DEV_GUIDE_SAMPLE_INDEX)
+      add_subdirectory(${dir})
+      break()
+    endif()
+  endforeach()
+endif()
